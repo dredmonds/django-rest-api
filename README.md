@@ -86,3 +86,17 @@ Dependencies:
     ```shell
     pip install -r requirements-dev.txt
     ```
+
+7. Create a superuser:
+
+    ```shell
+    ./manage.py createsuperuser
+    ```
+
+    (You can enter any valid email address as the username and user ID.)
+
+8. Start the server:
+
+    ```shell
+    ./manage.py runserver
+    ```
