@@ -1,0 +1,13 @@
+# Managing Dependabot PRs
+
+This is the process we have identified for dealing with Dependabot PRs that saves developer time and CircleCI resource.
+
+1. Create a new branch called `chore/dependencies-[yyyy-mm-dd]`, inserting today’s date.
+2. Open each Dependabot PR and check that the tests have passed. Re-run any failing tests as the majority of failures are caused by timeouts or flakiness. Codecov failures can be ignored.
+3. Once all tests have passed, edit the PR so that the base branch is the `chore/dependencies-[yyyy-mm-dd]` one. You should now be able to merge the PR without needing to request reviews.
+4. Repeat steps 2 and 3 until all PRs are either merged or identified as needing further work.
+5. After all the PRs have been merged, checkout the branch locally and carry out some basic smoke tests.
+6. Rebase the dependency branch against `main` to remove all the merge commits, then push the changes and open a PR.
+7. If you are satisfied that everything is in order and all the tests have passed, request reviews as normal.
+8. Once merged, deploy to production as soon as possible.
+
